@@ -4,6 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-# RUN pip install -r dependencies.txt
+# ? RUN python -m venv .venv
+# ? RUN pip install -r requirements.txt
 
 CMD [ "python", "main.py" ]

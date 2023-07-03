@@ -1,2 +1,2 @@
-MODEL_NAME = "IlyaGusev/mbart_ru_sum_gazeta"
+MODEL_NAME = "IlyaGusev/rut5_base_sum_gazeta"
 MAX_SIZE = 512
