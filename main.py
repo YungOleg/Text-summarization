@@ -1,9 +1,11 @@
 from summarization.summarize import summarize
 import logging
 import time
+from docx_worker.docxparse import parse_docx_document
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
+
 
 def open_text(path: str) -> str:
     with open(path, encoding='utf-8') as file:

@@ -11,7 +11,7 @@ def parse_docx_document(path: str) -> str:
     for text in doc.paragraphs:
         text_from_doc += text.text
         
-    return text_from_doc 
+    return text_from_doc
 
 
 def text_separator(text: str) -> List[str]:
