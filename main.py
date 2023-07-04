@@ -1,19 +1,34 @@
 from summarization.summarize import summarize
+import logging
 import time
 
+logging.basicConfig(level=logging.INFO)
+log = logging.getLogger(__name__)
+
+def open_text(path: str) -> str:
+    with open(path, encoding='utf-8') as file:
+        text = file.read()
+ 
+    log.info('Text is read')
+    return text
+
+
+def write_result(path: str, text: str):
+    with open(path, 'w', encoding='utf-8') as file:
+        file.write(summarize(text))
+        
+    log.info("Text is write")
+    
+    
 
 def main():
     start = time.time()
-    with open('texts/test_text.txt', encoding='utf-8') as file:
-        text = file.readlines()
-        print('Text is read')
-        print(f"Read time: {time.time() - start}")
+    
+    text = open_text("texts/test.txt")
+    log.info(f"Read time: {time.time() - start}")
         
-    with open('texts/finaltext.txt', 'w', encoding='utf-8') as file:
-        file.write(summarize(text))
-        print("Text is write")
-        print(f"Write time: {time.time() - start}")
-
+    write_result("texts/result.txt", text)
+    log.info(f"Write time: {time.time() - start}")
 
 if __name__ == "__main__":
     main()

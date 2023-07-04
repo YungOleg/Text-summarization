@@ -3,6 +3,9 @@ from util.constants import MODEL_NAME, MAX_SIZE
 
 
 def summarize(text: str) -> str:
+    """
+        Функция для обобщения текста на русском языке
+    """
     tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
     model = T5ForConditionalGeneration.from_pretrained(MODEL_NAME)
     input_ids = tokenizer(
