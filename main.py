@@ -1,7 +1,9 @@
 from summarization.summarize import summarize
 import logging
 import time
-from docx_worker.docxparse import parse_docx_document
+from docx_worker.docx_worker import get_texts_from_file
+
+# ! import asyncio
 
 logging.basicConfig(level=logging.INFO)
 log = logging.getLogger(__name__)
@@ -22,16 +24,24 @@ def write_result(path: str, text: str):
     log.info("Text is write")
     
     
-
 def main():
-    start = time.time()
+    # start = time.time()
     
-    text = open_text("texts/test.txt")
-    log.info(f"Read time: {time.time() - start}")
+    # text = open_text("texts/test.txt")
+    # log.info(f"Read time: {time.time() - start}")
         
-    write_result("texts/result.txt", text)
-    log.info(f"Write time: {time.time() - start}")
+    # write_result("texts/result.txt", text)
+    # log.info(f"Write time: {time.time() - start}")
+    
+    # for path in path_to_files(ID_LIST[0]):
+    #     print(path)
+    
+    
+    lista = get_texts_from_file()
+    for i in lista.keys():
+        log.info(f"{i} : {len(lista[i])}")
+
 
 if __name__ == "__main__":
     main()
-    # ! "pip freeze > requirements.txt"
+    # ? "pip freeze > requirements.txt"

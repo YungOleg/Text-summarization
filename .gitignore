@@ -2,3 +2,6 @@ texts
 .vscode
 .venv
 __pycache__
+.pytest_cache
+tests
+pytest.ini
