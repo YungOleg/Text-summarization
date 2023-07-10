@@ -1,7 +1,7 @@
 import os
 import docx2txt
 from typing import List, Dict
-from util.constants import BASE_PATH_TO_DOCX_DIRECTORY, WINDOWS_PREFIX
+from util import BASE_PATH_TO_DOCX_DIRECTORY, PREFIX
 
 # ? Список id для теста скрипта:
 ID_LIST = ["0816500000623013247", "0373100024323000018", "0372500001823000016"]
@@ -18,11 +18,11 @@ def path_to_files(id: str) -> Dict[str, str]:
     """
     path_to_directory = new_path_to_directory(id)
     list_of_file_names = os.listdir(path_to_directory)
-    list_of_paths = [path_to_directory + WINDOWS_PREFIX + name for name in list_of_file_names]
+    list_of_paths = [path_to_directory + PREFIX + name for name in list_of_file_names]
     
     dict_of_paths = dict()
     for name in list_of_file_names:
-        dict_of_paths |= {name : path_to_directory + WINDOWS_PREFIX + name}
+        dict_of_paths |= {name : path_to_directory + PREFIX + name}
     # !return list_of_paths
     return dict_of_paths
     
@@ -31,7 +31,7 @@ def new_path_to_directory(id: str) -> str:
     """
         В корневой директории "eis" хранятся папки, названием каждой папки является id(с сайта ЕИС)
     """
-    new_path = BASE_PATH_TO_DOCX_DIRECTORY + WINDOWS_PREFIX + id
+    new_path = BASE_PATH_TO_DOCX_DIRECTORY + PREFIX + id
     return new_path
 
 

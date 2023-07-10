@@ -1,6 +1,7 @@
 from transformers import AutoTokenizer, T5ForConditionalGeneration
-from util.constants import MODEL_NAME, MAX_SIZE
+from util import MODEL_NAME, MAX_SIZE
 
+# TODO: make spacy tokenization
 
 def summarize(text: str) -> str:
     """

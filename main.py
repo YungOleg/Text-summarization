@@ -1,18 +1,14 @@
-from summarization.summarize import summarize
-import logging
 import time
-from docx_worker.docx_worker import get_texts_from_file
+from docx_worker import get_texts_from_file
+from summarization import summarize
+from logger import log
 
-# ! import asyncio
-
-logging.basicConfig(level=logging.INFO)
-log = logging.getLogger(__name__)
-
+# TODO: import asyncio
 
 def open_text(path: str) -> str:
     with open(path, encoding='utf-8') as file:
         text = file.read()
- 
+
     log.info('Text is read')
     return text
 
